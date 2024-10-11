@@ -54,7 +54,7 @@ namespace BikeRentalManagement_V_2
             }
             else
             {
-                Console.WriteLine("Already Id exist")
+                Console.WriteLine("Already Id exist");
             }
 
           
@@ -93,6 +93,7 @@ namespace BikeRentalManagement_V_2
                 {
                     using (var command = new SqlCommand(query, connection))
                     {
+                        connection.Open();
                         command.Parameters.AddWithValue("@Id", Id);
                         command.ExecuteNonQuery();
                     }
@@ -112,6 +113,7 @@ namespace BikeRentalManagement_V_2
             {
                 using(var command=new SqlCommand(query,connection))
                 {
+                    connection.Open();
                    command.Parameters.AddWithValue("Id",id);
                     int result =(int)command.ExecuteScalar();
                     return result > 0;
@@ -143,6 +145,7 @@ namespace BikeRentalManagement_V_2
                 {
                     using (var command = new SqlCommand(query, connection))
                     {
+                        connection.Open();
                         command.Parameters.AddWithValue("@Id", Id);
                         command.Parameters.AddWithValue("@brand", brand);
                         command.Parameters.AddWithValue("@model", model);
