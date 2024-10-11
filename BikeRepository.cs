@@ -10,6 +10,11 @@ namespace BikeRentalManagement_V_2
     internal class BikeRepository
     {
         string connectionstring = "server=(localdb)\\MSSQLLocalDb;database=BikeRentalManagement;";
+
+        public string Capitalize(string value)
+        {
+            return value.Substring(0, 1).ToUpper() + value.Substring(1);
+        }
         public void CreateBike()
         {
             Console.Write("Enter ID:");
@@ -17,6 +22,7 @@ namespace BikeRentalManagement_V_2
 
             Console.Write("Enter Brand:");
             string brand = Console.ReadLine();
+            string cap=Capitalize(brand);
 
             Console.Write("Enter Model:");
             string model = Console.ReadLine();
@@ -33,7 +39,7 @@ namespace BikeRentalManagement_V_2
                 using (var command = new SqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@id", Id);
-                    command.Parameters.AddWithValue("@brand", brand);
+                    command.Parameters.AddWithValue("@brand", cap);
                     command.Parameters.AddWithValue("@model", model);
                     command.Parameters.AddWithValue("@price", price);
 
@@ -88,6 +94,7 @@ namespace BikeRentalManagement_V_2
             Console.Write("Enter Brand:");
             string brand = Console.ReadLine();
 
+
             Console.Write("Enter Model:");
             string model = Console.ReadLine();
 
@@ -104,7 +111,7 @@ namespace BikeRentalManagement_V_2
                     command.Parameters.AddWithValue("@Id", Id);
                     command.Parameters.AddWithValue("@brand", brand);
                     command.Parameters.AddWithValue("@model", model);
-                    command.Parameters.AddWithValue("@price", price;
+                    command.Parameters.AddWithValue("@price", price);
                     command.ExecuteNonQuery();
                 }
             }
