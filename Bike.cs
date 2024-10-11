@@ -13,5 +13,12 @@ namespace BikeRentalManagement_V_2
 string Model{ get; set; }
    decimal RentalPrice { get; set; }
 
+        public Bike(string bikeId, string brand, string model, decimal rentalPrice)
+        {
+            BikeId = bikeId;
+            Brand = brand;
+            Model = model;
+            RentalPrice = rentalPrice;
+        }
     }
 }
