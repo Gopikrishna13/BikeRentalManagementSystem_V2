@@ -26,15 +26,15 @@ namespace BikeRentalManagement_V_2
                         manager.CreateBike();
                         break;
                     case 2:
-                       // manager.ReadBikes();
+                        manager.ReadBikes();
                         break;
 
                     case 3:
-                       // manager.UpdateBike();
+                        manager.UpdateBike();
                         break;
 
                     case 4:
-                       // manager.DeleteBike();
+                        manager.DeleteBike();
                         break;
                     case 5:
                         response = false;
